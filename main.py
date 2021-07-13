@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 
+# function for the popup notification
 def notifyMe(title, message):
     notification.notify(
         title = title,
@@ -11,7 +12,7 @@ def notifyMe(title, message):
         timeout = 6
     )
 
-
+#extracting web data from internet
 def getData(url):
     r = requests.get(url)
     return r.text
@@ -19,7 +20,6 @@ def getData(url):
 
 if __name__ == "__main__":
     while True:
-        # notifyMe("Harry", "Lets stop the spread of this virus together")
         myHtmlData = getData('https://www.mohfw.gov.in/')
 
         soup = BeautifulSoup(myHtmlData, 'html.parser')
